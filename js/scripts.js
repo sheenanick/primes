@@ -23,13 +23,16 @@ function getPrimes(toPrime){
 //<!-- Front End  -->
 $(document).ready(function(){
   $("form#primeInput").submit(function(event){
+    $(".display").remove();
     event.preventDefault();
     var toPrime = parseInt($("input#toPrime").val());
     if(!toPrime){
 
     }else{
       var primeArray = getPrimes(toPrime);
-      $(".well").text(primeArray);
+      for(var i = 0; i < primeArray.length; i++){
+        $(".well").append("<span class='display'>" + primeArray[i] + "</span>");
+      }
     }
   });
 });
